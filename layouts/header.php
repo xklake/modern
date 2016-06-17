@@ -61,7 +61,6 @@
                             <a href="<?=$item['url']?>">
                                 <?=$item['surname']?>
                             </a>
-
                         </li>
                     <?php } ?>
                 </ul>
