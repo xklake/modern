@@ -34,7 +34,7 @@ class ModernAssets extends AssetBundle
         'js/main.js',
         'js/wow.min.js',
     ];
+
     public $depends = [
     ];
-
 }

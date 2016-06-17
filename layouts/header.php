@@ -14,7 +14,7 @@
                 <div class="col-sm-6 col-xs-4">
                     <div class="top-number">
                         <p>
-                            英国中软软件
+                            英国中软软件网
                         </p>
                     </div>
                 </div>
@@ -49,8 +49,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">
-                    <img src="<?='/'.Yii::$app->setting->get('logo')?>" alt="<?=Yii::$app->setting->get('siteName')?>">
+                <a class="navbar-brand" href="<?=Yii::$app->homeUrl?>">
+                    <img src="<?='/'.Yii::$app->getBanners('logo')->image?>" alt="<?=Yii::$app->setting->get('siteName')?>">
                 </a>
             </div>
 
@@ -58,9 +58,10 @@
                 <ul class="nav navbar-nav">
                     <?php foreach(Yii::$app->getCatalogs() as $item) {?>
                         <li>
-                            <a href="<?=Yii::$app->urlManager->createUrl(['/blog/default/catalog', 'id'=>$item['id']])?>">
+                            <a href="<?=$item['url']?>">
                                 <?=$item['surname']?>
                             </a>
+
                         </li>
                     <?php } ?>
                 </ul>
