@@ -30,7 +30,7 @@
 
         <div class="row">
             <div class="portfolio-items">
-                <?php $banners = Yii::$app->getBannerByGroup(2);
+                <?php $banners = Yii::$app->getImageByGroup(2);
                 foreach($banners as $item){?>
                     <div class="portfolio-item <?=$item->keywords?> col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">

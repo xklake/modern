@@ -50,7 +50,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?=Yii::$app->homeUrl?>">
-                    <img src="<?='/'.Yii::$app->getBanners('logo')->image?>" alt="<?=Yii::$app->setting->get('siteName')?>">
+                    <img src="<?='/'.Yii::$app->getImages('logo')->image?>" alt="<?=Yii::$app->setting->get('siteName')?>">
                 </a>
             </div>
 

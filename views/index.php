@@ -6,7 +6,7 @@
  * Time: 5:32 PM
  */
 
-$banners = Yii::$app->getBannerByGroup(1);
+$banners = Yii::$app->getImageByGroup('banner');
 $index = 0;
 ?>
 
@@ -132,7 +132,7 @@ $index = 0;
         </div>
 
         <div class="row">
-            <?php $banners = Yii::$app->getBannerByGroup(2);
+            <?php $banners = Yii::$app->getImageByGroup(2);
             foreach($banners as $item) {
         ?>
             <div class="portfolio-item <?=$item->keywords?> col-xs-12 col-sm-4 col-md-3">
