@@ -14,7 +14,7 @@
                 <div class="col-sm-6 col-xs-4">
                     <div class="top-number">
                         <p>
-                            英国中软软件网
+                            英国中软软件
                         </p>
                     </div>
                 </div>

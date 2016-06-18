@@ -21,7 +21,7 @@
                 <div class="col-sm-4 plan price-one wow fadeInDown">
                     <ul>
                         <li class="heading-one">
-                            <h1>响应式模板企业网站</h1>
+                            <h2>响应式模板企业网站</h2>
                             <span>400英镑</span>
                         </li>
                         <li>多种响应式模板可选</li>
@@ -39,7 +39,7 @@
                 <div class="col-sm-4 plan price-two wow fadeInDown">
                     <ul>
                         <li class="heading-two">
-                            <h1>定制化模板企业网站</h1>
+                            <h2>定制化模板企业网站</h2>
                             <span>800英镑</span>
                         </li>
                         <li>多种响应式模板可选</li>
@@ -57,7 +57,7 @@
                 <div class="col-sm-4 plan price-three wow fadeInDown">
                     <ul>
                         <li class="heading-three">
-                            <h1>模板化电商系统</h1>
+                            <h2>模板化电商系统</h2>
                             <span>700英镑</span>
                         </li>
                         <li>Magento系统开发，配置</li>
@@ -75,7 +75,7 @@
                 <div class="col-sm-4 plan price-one wow fadeInDown">
                     <ul>
                         <li class="heading-one">
-                            <h1>定制电商商城系统</h1>
+                            <h2>定制电商商城系统</h2>
                             <span>2000英镑起</span>
                         </li>
                         <li>功能可定制</li>
@@ -93,7 +93,7 @@
                 <div class="col-sm-4 plan price-two wow fadeInDown">
                     <ul>
                         <li class="heading-two">
-                            <h1>定制快递网络系统</h1>
+                            <h2>定制快递网络系统</h2>
                             <span>5000英镑起</span>
                         </li>
                         <li>html5 + css3</li>
@@ -112,7 +112,7 @@
                 <div class="col-sm-4 plan price-three wow fadeInDown">
                     <ul>
                         <li class="heading-three">
-                            <h1>iOS或android app制作</h1>
+                            <h2>iOS或android app制作</h2>
                             <span>4000英镑起</span>
                         </li>
                         <li>iOS或者android</li>

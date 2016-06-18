@@ -71,7 +71,7 @@
 
 
         <div class="get-started center wow fadeInDown">
-            <h2>还有什么不清楚的吗？</h2>
+            <h2>这不是一次性的开发，而是长久的承诺</h2>
             <p class="lead">
                 软件和网站虽然是一次性的完成，可是不同专业程度完成的质量参差不齐，
                 <br>选择一个稳定的，长期，可靠，安全的团队来执行是至关紧要的。
@@ -90,14 +90,23 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4 wow fadeInDown">
-                <div class="clients-comments text-center">
-                    <img src="images/client1.png" class="img-circle" alt="">
-                    <h3>我的网站之前是找了一个学生来制作的，但是学生回国了，甚至我的域名都是让他给我申请的，以至于我无法拿回我一直使用的域名。而中国软件很他们主动指导我自己来申请新的域名，就冲这一点，让我觉得他们非常可靠。完成的网站也让我非常满意。
-                    </h3>
-                    <h4><span>-Steven Chen</span></h4>
-                </div>
-            </div>
+            <?php
+                $clients = Yii::$app->getImageByGroup('clients');
+                foreach($clients as $item){
+                    ?>
+                    <div class="col-md-4 wow fadeInDown">
+                        <div class="clients-comments text-center">
+                            <img src="<?='/'.$item->image?>" class="img-circle" alt="">
+                            <h3>
+                                <?=$item->description?>
+                            </h3>
+                            <h4><span>-<?=$item->name?></span></h4>
+                        </div>
+                    </div>
+                <?php } ?>
+
+            <!--h3>我的网站之前是找了一个学生来制作的，但是学生回国了，甚至我的域名都是让他给我申请的，以至于我无法拿回我一直使用的域名。而中国软件很他们主动指导我自己来申请新的域名，就冲这一点，让我觉得他们非常可靠。完成的网站也让我非常满意。
+
             <div class="col-md-4 wow fadeInDown">
                 <div class="clients-comments text-center">
                     <img src="images/client2.png" class="img-circle" alt="">
@@ -111,7 +120,7 @@
                     <h3>中国软件维护我们的内部用的线上系统已经有三年，三年来我们有很多的需求和改进都得到了实现，非常感谢他们的努力和认真。</h3>
                     <h4><span>-Amy Zhu</span></h4>
                 </div>
-            </div>
+            </div-->
         </div>
 
     </div><!--/.container-->
