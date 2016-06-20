@@ -104,23 +104,6 @@
                         </div>
                     </div>
                 <?php } ?>
-
-            <!--h3>我的网站之前是找了一个学生来制作的，但是学生回国了，甚至我的域名都是让他给我申请的，以至于我无法拿回我一直使用的域名。而中国软件很他们主动指导我自己来申请新的域名，就冲这一点，让我觉得他们非常可靠。完成的网站也让我非常满意。
-
-            <div class="col-md-4 wow fadeInDown">
-                <div class="clients-comments text-center">
-                    <img src="images/client2.png" class="img-circle" alt="">
-                    <h3>我们的项目非常复杂，我本来以为他们是无法完成这么高度定制化的任务的，结果却出我意料之外，他们不仅在约定的4个月内完成了，而且根据我们的需求的变更做了很多的修改并没有要求大幅的加价。</h3>
-                    <h4><span>-John Wang</span> </h4>
-                </div>
-            </div>
-            <div class="col-md-4 wow fadeInDown">
-                <div class="clients-comments text-center">
-                    <img src="images/client3.png" class="img-circle" alt="">
-                    <h3>中国软件维护我们的内部用的线上系统已经有三年，三年来我们有很多的需求和改进都得到了实现，非常感谢他们的努力和认真。</h3>
-                    <h4><span>-Amy Zhu</span></h4>
-                </div>
-            </div-->
         </div>
 
     </div><!--/.container-->
