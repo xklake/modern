@@ -8,8 +8,8 @@
 ?>
 
 <div class="widget search">
-    <form role="form">
-        <input type="text" class="form-control search_box" autocomplete="off" placeholder="搜索......">
+    <form action="<?= Yii::$app->urlManager->createUrl(['/blog/default/catalog']) ?>" method="get" id="search_fm" name="search_fm" role="form">
+        <input class="form-control search_box" autocomplete="off" type="text" name="keyword" id="searchText" placeholder="搜索博客......"/>
     </form>
 </div><!--/.search-->
 
