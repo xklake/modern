@@ -8,7 +8,7 @@
 ?>
 
 <div class="blog-item">
-    <img class="img-responsive img-blog" src="images/blog/blog1.jpg" width="100%" alt="" />
+    <img class="img-responsive img-blog" src="<?='/'.$post->banner?>" width="100%" alt="" />
     <div class="row">
         <div class="col-xs-12 col-sm-2 text-center">
             <div class="entry-meta">
@@ -18,22 +18,25 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-10 blog-content">
-            <h2>Consequat bibendum quam</h2>
-            <p>Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</p>
-
-            <p>Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper.</p>
-
+            <h2><?=$post->title?></h2>
+            <?=$post->content?>
             <div class="post-tags">
-                <strong>Tag:</strong> <a href="#">Cool</a> / <a href="#">Creative</a> / <a href="#">Dubttstep</a>
-            </div>
+                <strong>标签:</strong>
 
+                <?php
+                    $tags = $post->getTagLinks();
+                    foreach($tags as $item){
+                        echo ($item .'  ');
+                    }
+                ?>
+            </div>
         </div>
     </div>
 </div><!--/.blog-item-->
 
 <div class="media reply_section">
     <div class="pull-left post_reply text-center">
-        <a href="#"><img src="images/blog/boy.png" class="img-circle" alt="" /></a>
+        <a href="#"><img src="/images/avatar3.png" class="img-circle" alt="" /></a>
         <ul>
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -41,46 +44,35 @@
         </ul>
     </div>
     <div class="media-body post_reply_content">
-        <h3>Antone L. Huges</h3>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariaturp</p>
-        <p><strong>Web:</strong> <a href="#">www.shapebootstrap.net</a></p>
+        <h3>作者 ： Panda Blog</h3>
+        <p class="lead">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariaturp
+        </p>
+        <p><strong>Web:</strong> <a href="http://www.chinasoftware.co.uk" target="_blank">www.chinasoftware.co.uk</a></p>
     </div>
 </div>
 
-<h1 id="comments_title">5 Comments</h1>
+<?php
+    $comments = $post->comments;
+    $commentcount = count($comments);
+?>
+<h1 id="comments_title">共<?=$commentcount?>条评论</h1>
+
+<?php
+    foreach($comments as $item){
+?>
 <div class="media comment_section">
     <div class="pull-left post_comments">
-        <a href="#"><img src="images/blog/girl.png" class="img-circle" alt="" /></a>
+        <a href="#"><img src="/images/avatar3.png" class="img-circle" alt="" /></a>
     </div>
     <div class="media-body post_reply_comments">
-        <h3>Marsh</h3>
-        <h4>NOVEMBER 9, 2013 AT 9:15 PM</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-        <a href="#">Reply</a>
+        <h3><?=$item->author?></h3>
+        <h4><?=date('Y-m-d H:i', $item->created_at)?></h4>
+        <p><?=$item->content?></p>
+        <a href="#">回复</a>
     </div>
 </div>
-<div class="media comment_section">
-    <div class="pull-left post_comments">
-        <a href="#"><img src="images/blog/boy2.png" class="img-circle" alt="" /></a>
-    </div>
-    <div class="media-body post_reply_comments">
-        <h3>Marsh</h3>
-        <h4>NOVEMBER 9, 2013 AT 9:15 PM</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-        <a href="#">Reply</a>
-    </div>
-</div>
-<div class="media comment_section">
-    <div class="pull-left post_comments">
-        <a href="#"><img src="images/blog/boy3.png" class="img-circle" alt="" /></a>
-    </div>
-    <div class="media-body post_reply_comments">
-        <h3>Marsh</h3>
-        <h4>NOVEMBER 9, 2013 AT 9:15 PM</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-        <a href="#">Reply</a>
-    </div>
-</div>
+<?php } ?>
 
 
 <div id="contact-page clearfix">
