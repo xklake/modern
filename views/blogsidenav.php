@@ -9,94 +9,86 @@
 
 <div class="widget search">
     <form role="form">
-        <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+        <input type="text" class="form-control search_box" autocomplete="off" placeholder="搜索......">
     </form>
 </div><!--/.search-->
 
-<div class="widget categories">
-    <h3>Recent Comments</h3>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="single_comments">
-                <img src="images/modern/blog/avatar3.png" alt=""  />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                <div class="entry-meta small muted">
-                    <span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
-                </div>
-            </div>
-            <div class="single_comments">
-                <img src="images/blog/avatar3.png" alt=""  />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                <div class="entry-meta small muted">
-                    <span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
-                </div>
-            </div>
-            <div class="single_comments">
-                <img src="images/blog/avatar3.png" alt=""  />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                <div class="entry-meta small muted">
-                    <span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div><!--/.recent comments-->
-
 
 <div class="widget categories">
-    <h3>Categories</h3>
+    <h3>博客分类</h3>
     <div class="row">
         <div class="col-sm-6">
             <ul class="blog_category">
-                <li><a href="#">Computers <span class="badge">04</span></a></li>
-                <li><a href="#">Smartphone <span class="badge">10</span></a></li>
-                <li><a href="#">Gedgets <span class="badge">06</span></a></li>
-                <li><a href="#">Technology <span class="badge">25</span></a></li>
+                <?php
+                    $allCatalog = \funson86\blog\models\BlogCatalog::find()->where(['status' => \funson86\blog\models\Status::STATUS_ACTIVE])->andwhere(
+                        ['parent_id' => 17] )->orderby(['sort_order' => SORT_ASC])->all();
+
+                    foreach($allCatalog as $item) {
+                        if ($item->template == \funson86\blog\models\BlogCatalog::TEMPLATE_MULTIPLY) {
+                            ?>
+                            <li>
+                                <a href="<?=Yii::$app->getUrlManager()->createUrl(['/blog/default/catalog/','id'=>$item->id])?>">
+                                    <?=$item->surname?>
+                                    <span class="badge"><?=$item->getPostsCount()?></span>
+                                </a>
+                            </li>
+                <?php
+                        }
+                    }
+                ?>
             </ul>
         </div>
     </div>
 </div><!--/.categories-->
 
+
+<div class="widget categories">
+    <h3>最新评论</h3>
+    <div class="row">
+        <div class="col-sm-12">
+            <?php
+                $comments = \funson86\blog\models\BlogComment::findRecentComments(10);
+                foreach($comments as $item){ ?>
+                    <div class="single_comments">
+                        <img src="/images/avatar3.png" alt=""  />
+                        <p><?=$item->content?></p>
+                        <div class="entry-meta small muted">
+
+                            <span><a href="#"><?=$item->author?></a></span <span>评论  <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->blogPost->id])?>"><?=$item->blogPost->title?></a></span>
+
+                        </div>
+                    </div>
+            <?php } ?>
+        </div>
+    </div>
+</div><!--/.recent comments-->
+
+
 <div class="widget archieve">
-    <h3>Archieve</h3>
+    <h3>博客归档</h3>
     <div class="row">
         <div class="col-sm-12">
             <ul class="blog_archieve">
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
+                <?php
+                    $archives = \funson86\blog\models\BlogCatalog::getArchive();
+                    foreach($archives as $item) {
+                ?>
+                    <li><a href="<?=Yii::$app->getUrlManager()->createUrl(['/blog/default/catalog/','archivebymonth'=>$item['time']])?>"><i class="fa fa-angle-double-right"></i> <?=$item['time']?> <span class="pull-right">(<?=$item['count']?>)</span></a></li>
+                <?php
+                    }
+                ?>
             </ul>
         </div>
     </div>
 </div><!--/.archieve-->
 
 <div class="widget tags">
-    <h3>Tag Cloud</h3>
+    <h3>热门标签</h3>
     <ul class="tag-cloud">
-        <li><a class="btn btn-xs btn-primary" href="#">Apple</a></li>
-        <li><a class="btn btn-xs btn-primary" href="#">Barcelona</a></li>
-        <li><a class="btn btn-xs btn-primary" href="#">Office</a></li>
-        <li><a class="btn btn-xs btn-primary" href="#">Ipod</a></li>
-        <li><a class="btn btn-xs btn-primary" href="#">Stock</a></li>
-        <li><a class="btn btn-xs btn-primary" href="#">Race</a></li>
-        <li><a class="btn btn-xs btn-primary" href="#">London</a></li>
-        <li><a class="btn btn-xs btn-primary" href="#">Football</a></li>
-        <li><a class="btn btn-xs btn-primary" href="#">Porche</a></li>
-        <li><a class="btn btn-xs btn-primary" href="#">Gadgets</a></li>
+        <?php $tags = array_reverse(\funson86\blog\models\BlogTag::findTagWeights(20));
+            foreach($tags as $key => $val){
+        ?>
+            <li><a class="btn btn-xs btn-primary" href="<?=Yii::$app->getUrlManager()->createUrl(['/blog/default/catalog/','tag'=>$key])?>"><?=$key?> (<?=$val?>)</a></li>
+        <?php } ?>
     </ul>
 </div><!--/.tags-->
-
-<div class="widget blog_gallery">
-    <h3>Our Gallery</h3>
-    <ul class="sidebar-gallery">
-        <li><a href="#"><img src="images/blog/gallery1.png" alt="" /></a></li>
-        <li><a href="#"><img src="images/blog/gallery2.png" alt="" /></a></li>
-        <li><a href="#"><img src="images/blog/gallery3.png" alt="" /></a></li>
-        <li><a href="#"><img src="images/blog/gallery4.png" alt="" /></a></li>
-        <li><a href="#"><img src="images/blog/gallery5.png" alt="" /></a></li>
-        <li><a href="#"><img src="images/blog/gallery6.png" alt="" /></a></li>
-    </ul>
-</div><!--/.blog_gallery-->
-
