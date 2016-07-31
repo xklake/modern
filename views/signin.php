@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <label>
-                                    <a href="<?= Yii::$app->urlManager->createUrl(['site/request-password-reset']) ?>">忘记密码?</a>
+                                    <a href="<?= Yii::$app->urlManager->createUrl(['blog/default/requestpasswordreset']) ?>">忘记密码?</a>
                                 </label>
                             </div>
                         </div>
