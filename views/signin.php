@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-body">
                     <?php $form = ActiveForm::begin(['id' => 'login-nala-form', 'options' => ['class'=> 'form-horizontal']]); ?>
                         <div class="form-group">
-                            <h2 style="width: 100%;text-align: center;font-size:3.3rem;" >登录</h2>
+                            <h3 style="width: 100%;text-align: center;font-size:2.3rem;" >登录</h3>
                         </div>
 
 

@@ -31,12 +31,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <?= Html::submitButton( Yii::t('app', 'Send'), ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
+
+                                <?php if($model->errors != null) {?>
+                                        错误：<?=$model->errors['email'][0]?>
+                                <?php } else { ?>
+                                    成功：<?=Yii::$app->getSession()->getFlash('success')?>
+                                <?php } ?>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <a href="<?= Yii::$app->urlManager->createUrl(['site/login']) ?>">点击登录</a>
+                                <a href="<?= Yii::$app->urlManager->createUrl(['blog/default/signin']) ?>">点击登录</a>
                             </div>
                         </div>
                     <?php ActiveForm::end(); ?>
