@@ -14,8 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container">
     <div class="row" style="margin-top:100px; margin-bottom: 100px;">
         <div class="col-md-6 col-md-offset-3 col-lg-6 col-xs-12 col-sm-9">
-            <div class="panel panel-default">
-                <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h3 style="width: 100%;text-align: center;font-size:2.3rem;" ><?=$this->title?></h3>
+                </li>
+                <li class="list-group-item">
                     <?php $form = ActiveForm::begin(['id' => 'login-nala-form', 'options' => ['class'=> 'form-horizontal']]); ?>
                         <div class="form-group">
                             <h4 style="text-align: center;"><?= Yii::t('app', 'Please fill out your email. A link to reset password will be sent there.') ?></h4>
@@ -32,11 +35,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="col-sm-offset-2 col-sm-10">
                                 <?= Html::submitButton( Yii::t('app', 'Send'), ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
 
-                                <?php if($model->errors != null) {?>
-                                        错误：<?=$model->errors['email'][0]?>
-                                <?php } else { ?>
-                                    成功：<?=Yii::$app->getSession()->getFlash('success')?>
-                                <?php } ?>
+                                <?php
+                                if($msg != null)
+                                {
+                                    echo($msg);
+                                }
+                                ?>
                             </div>
                         </div>
 

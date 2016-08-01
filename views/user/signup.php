@@ -16,14 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container">
     <div class="row" style="margin-top:100px; margin-bottom: 100px;">
         <div class="col-md-6 col-md-offset-3 col-lg-6 col-xs-12 col-sm-9">
-            <div class="panel panel-default">
-                <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h3 style="width: 100%;text-align: center;font-size:2.3rem;" ><?=$this->title?></h3>
+                </li>
+                <li class="list-group-item">
                     <?php $form = ActiveForm::begin(['id' => 'login-nala-form', 'options' => ['class'=> 'form-horizontal']]); ?>
-                        <div class="form-group">
-                            <h3 style="width: 100%;text-align: center;font-size:2.3rem;" ><?=$this->title?></h3>
-                        </div>
-
-
                         <div class="form-group">
                             <label for="username" class="col-sm-2 control-label">用户名</label>
                             <div class="col-sm-10">
@@ -52,8 +50,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
                     <?php ActiveForm::end(); ?>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
