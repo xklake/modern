@@ -12,7 +12,7 @@ $this->beginContent('@frontend/web/template/modern/layouts/main.php');
 <section id="blog" class="container">
     <div class="row">
         <aside class="col-md-3">
-            <?= $this->render('/user/leftnav.php', [])?>
+            <?= $this->render('/leftnav.php', [])?>
         </aside>
 
         <div class="col-md-9">
