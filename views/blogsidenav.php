@@ -53,11 +53,11 @@
                         <img src="/images/avatar3.png" alt=""  />
                         <p><?=$item->content?></p>
                         <div class="entry-meta small muted">
-
                             <span><a href="#"><?=$item->author?></a></span <span>评论  <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->blogPost->id])?>"><?=$item->blogPost->title?></a></span>
-
                         </div>
                     </div>
+
+                    <div style="clear:both"></div>
             <?php } ?>
         </div>
     </div>
