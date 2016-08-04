@@ -52,61 +52,168 @@
     </div>
 </div>
 
-<?php
-    $comments = $post->comments;
-    $commentcount = count($comments);
-?>
-<h1 id="comments_title">共<?=$commentcount?>条评论</h1>
-
-<?php
-    foreach($comments as $item){
-?>
-<div class="media comment_section">
-    <div class="pull-left post_comments">
-        <a href="#"><img src="/images/avatar3.png" class="img-circle" alt="" /></a>
-    </div>
-    <div class="media-body post_reply_comments">
-        <h3><?=$item->author?></h3>
-        <h4><?=date('Y-m-d H:i', $item->created_at)?></h4>
-        <p><?=$item->content?></p>
-        <a href="#">回复</a>
-    </div>
+<h1 id="comments_title">共<span id='comment_count'></span>条评论</h1>
+<div id='allcomments'>
 </div>
-<?php } ?>
 
 
 <div id="contact-page clearfix">
     <div class="status alert alert-success" style="display: none"></div>
     <div class="message_heading">
-        <h4>Leave a Replay</h4>
-        <p>Make sure you enter the(*)required information where indicate.HTML code is not allowed</p>
+        <h4><span class="fa fa-comment"></span>我要评论</h4>
+        <p>所有带星号(*)输入框都需要填写.不允许有任何的HTML代码</p>
     </div>
 
-    <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
+    <?php
+        $isGuest = Yii::$app->user->isGuest;
+    ?>
+
+    <form role="form" class='contact-form'>
         <div class="row">
             <div class="col-sm-5">
                 <div class="form-group">
-                    <label>Name *</label>
-                    <input type="text" class="form-control" required>
+                    <label>昵称 *</label>
+                    <?php
+                    if($isGuest) {  ?>
+                        <input type='text'  id='author' class='form-control' placeholder='昵称'>
+                    <?php } else { ?>
+                        <input type='text'  id='author' class='form-control' placeholder='昵称' disabled='disabled' value="<?=Yii::$app->user->identity->profile->surname?>">
+                    <?php } ?>
                 </div>
+
                 <div class="form-group">
-                    <label>Email *</label>
-                    <input type="email" class="form-control" required>
+                    <label>邮箱 *</label>
+                    <?php
+                    if($isGuest) {  ?>
+                        <input type='text'  id='email' class='form-control' placeholder='邮箱'>
+                    <?php } else { ?>
+                        <input type='text'  id='email' class='form-control' placeholder='邮箱' disabled='disabled' value="<?=Yii::$app->user->identity->email?>">
+                    <?php } ?>
                 </div>
+
                 <div class="form-group">
                     <label>URL</label>
-                    <input type="url" class="form-control">
+                    <?php
+                    if($isGuest) {  ?>
+                        <input type='text'  id='url' class='form-control' placeholder='URL'>
+                    <?php } else { ?>
+                        <input type='text'  id='url' class='form-control' placeholder='URL' disabled='disabled'>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-sm-7">
                 <div class="form-group">
-                    <label>Message *</label>
-                    <textarea name="message" id="message" required class="form-control" rows="8"></textarea>
+                    <label>评论内容 *</label>
+                    <?php
+                    if($isGuest) {  ?>
+                        <textarea id='content' class='form-control' placeholder='评论内容' rows='8'></textarea>
+                    <?php } else { ?>
+                        <textarea id='content' class='form-control' placeholder='评论内容' rows='8'></textarea>
+                    <?php } ?>
                 </div>
+
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
+                    <div id="addcomment" class="btn btn-success" > 提交 </div>
                 </div>
             </div>
         </div>
     </form>
 </div><!--/#contact-page-->
+
+
+<?php
+$urlNewComment = Yii::$app->urlManager->createUrl(['blog/default/newcomment']);
+$csrfcode = Yii::$app->request->getCsrfToken();
+$urlComment = Yii::$app->urlManager->createUrl(['blog/default/comment']);
+
+
+$this->registerJs('
+    var urlNewComment = "' . $urlNewComment . '";
+    var csrfcode = "'. $csrfcode .'";
+    var postid = "'. $post->id .'";
+');
+
+
+$js = <<<JS
+
+    $.ajax({
+        url: "{$urlComment}?postid=" + {$post->id},
+        type: "GET",
+        dataType: "html",
+        success: function(data){
+            $('#allcomments').html(data);
+            $('#comment_count').text(data.length);
+        }
+    }).fail(function(){
+            alert("Error");
+    });
+
+    $('#allcomments').on('click','.reply', function(e){
+       var author = "  //@" + $(this).parent().children('#comment_author').text();
+       var content = ":" + $(this).parent().children('#comment_content').text();
+       $('#content').val(author + content);
+
+       $('html, body').animate({
+                    scrollTop: $("#content").offset().top
+                }, 2000);
+
+        //resetCursor($('#content'));
+       //$('#content').focus();
+       input_content = document.getElementById('content');
+       if(input_content){
+        input_content.focus();
+        input_content.setSelectionRange(0,0);
+       }
+    });
+
+    function resetCursor(txtElement) {
+    if (txtElement.setSelectionRange) {
+        txtElement.focus();
+        txtElement.setSelectionRange(0, 0);
+    } else if (txtElement.createTextRange) {
+        var range = txtElement.createTextRange();
+        range.moveStart('character', 0);
+        range.select();
+    }
+}
+
+    $('#allcomments').on('click', '.pagination a', function(e){
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr('href'),
+            type: "GET",
+            dataType: "html",
+            success: function(data){
+                $('#allcomments').html(data);
+            }
+
+        }).fail(function(){
+                alert("Error");
+        });
+
+    });
+
+
+    $("#addcomment").click(function(){
+    param = {
+        author:$('#author').val(),
+        email:$('#email').val(),
+        content:$('#content').val(),
+        url:$('#url').val(),
+        postid:postid,
+        _csrf: csrfcode
+    };
+
+    $.post("{$urlNewComment}", param, function(data) {
+
+        if (data.status < 0) {
+            alert('评论失败');
+        } else {
+            location.reload();
+        }
+    }, "json");
+});
+JS;
+
+$this->registerJs($js);
+?>
