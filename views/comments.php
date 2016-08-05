@@ -17,7 +17,7 @@
         <?php } ?>
     </div>
 
-    <div>
+    <div style="margin-left:30px;">
         <?= \yii\widgets\LinkPager::widget(['pagination' => $pagination, 'options'=>['class'=>'pagination'], 'activePageCssClass' => 'active']) ?>
     </div>
 <?php } ?>

@@ -137,7 +137,7 @@ $this->registerJs('
 $js = <<<JS
 
     $.ajax({
-        url: "{$urlComment}?postid=" + {$post->id},
+        url: "{$urlComment}?postid=" + postid + "&userid=",
         type: "GET",
         dataType: "html",
         success: function(data){
@@ -153,29 +153,19 @@ $js = <<<JS
        var content = ":" + $(this).parent().children('#comment_content').text();
        $('#content').val(author + content);
 
-       $('html, body').animate({
-                    scrollTop: $("#content").offset().top
-                }, 2000);
+       $('html, body').animate(
+        {
+            scrollTop: $("#content").offset().top
+        }, 2000);
 
         //resetCursor($('#content'));
        //$('#content').focus();
-       input_content = document.getElementById('content');
+       var input_content = document.getElementById('content');
        if(input_content){
         input_content.focus();
         input_content.setSelectionRange(0,0);
        }
     });
-
-    function resetCursor(txtElement) {
-    if (txtElement.setSelectionRange) {
-        txtElement.focus();
-        txtElement.setSelectionRange(0, 0);
-    } else if (txtElement.createTextRange) {
-        var range = txtElement.createTextRange();
-        range.moveStart('character', 0);
-        range.select();
-    }
-}
 
     $('#allcomments').on('click', '.pagination a', function(e){
         e.preventDefault();

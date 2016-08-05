@@ -15,7 +15,6 @@ class ModernAssets extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web/modern/asset';
 
-    //public $sourcePath = '@web/template/modern/assets';
 
     public $css = [
         'css/bootstrap.min.css',
