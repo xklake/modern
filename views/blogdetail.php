@@ -106,7 +106,7 @@
                     <label>评论内容 *</label>
                     <?php
                     if($isGuest) {  ?>
-                        <textarea id='content' class='form-control' placeholder='评论内容' rows='8'></textarea>
+                        <textarea  id='content' class='form-control' placeholder='评论内容' rows='8'></textarea>
                     <?php } else { ?>
                         <textarea id='content' class='form-control' placeholder='评论内容' rows='8'></textarea>
                     <?php } ?>
@@ -123,6 +123,9 @@
 
 <?php
 $urlNewComment = Yii::$app->urlManager->createUrl(['blog/default/newcomment']);
+$urlModifyComment = Yii::$app->urlManager->createUrl(['blog/default/modifycomment']);
+$urlDeleteComment = Yii::$app->urlManager->createUrl(['blog/default/deletecomment']);
+
 $csrfcode = Yii::$app->request->getCsrfToken();
 $urlComment = Yii::$app->urlManager->createUrl(['blog/default/comment']);
 
@@ -148,6 +151,45 @@ $js = <<<JS
             alert("Error");
     });
 
+    $('#allcomments').on('click','.delete', function(e){
+
+        var id = $(this).parent().attr('id');
+        param = {
+            id:id,
+            _csrf: csrfcode
+        };
+
+        $.post("{$urlDeleteComment}", param, function(data) {
+            if (data.status < 0) {
+                alert('删除评论失败');
+            } else {
+                location.reload();
+            }
+        }, "json");
+    });
+
+
+    $('#allcomments').on('click','.modify', function(e){
+
+       $('#content').val($(this).parent().children('#comment_content').text());
+
+       $('#content').attr('commentid', $(this).parent().attr('id'));
+
+        //scroll down
+       $('html, body').animate(
+        {
+            scrollTop: $("#content").offset().top
+        }, 2000);
+
+       //stay focus
+       var input_content = document.getElementById('content');
+       if(input_content){
+        input_content.focus();
+        input_content.setSelectionRange(0,0);
+       }
+    });
+
+
     $('#allcomments').on('click','.reply', function(e){
        var author = "  //@" + $(this).parent().children('#comment_author').text();
        var content = ":" + $(this).parent().children('#comment_content').text();
@@ -158,14 +200,14 @@ $js = <<<JS
             scrollTop: $("#content").offset().top
         }, 2000);
 
-        //resetCursor($('#content'));
-       //$('#content').focus();
+
        var input_content = document.getElementById('content');
        if(input_content){
         input_content.focus();
         input_content.setSelectionRange(0,0);
        }
     });
+
 
     $('#allcomments').on('click', '.pagination a', function(e){
         e.preventDefault();
@@ -184,11 +226,12 @@ $js = <<<JS
     });
 
 
-    $("#addcomment").click(function(){
+    $("#addcomment").click(function(e){
     param = {
         author:$('#author').val(),
         email:$('#email').val(),
-        content:$('#content').val(),
+        content:$(this).parent().parent().find('#content').val(),
+        commentid:$(this).parent().parent().find('#content').attr("commentid"),
         url:$('#url').val(),
         postid:postid,
         _csrf: csrfcode

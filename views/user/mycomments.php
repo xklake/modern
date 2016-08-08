@@ -27,6 +27,12 @@ $i = 0;
 
 <?php
 $urlComment = Yii::$app->urlManager->createUrl(['blog/default/comment']);
+$urlNewComment = Yii::$app->urlManager->createUrl(['blog/default/newcomment']);
+$csrfcode = Yii::$app->request->getCsrfToken();
+$urlDeleteComment = Yii::$app->urlManager->createUrl(['blog/default/deletecomment']);
+$urlActivateComment = Yii::$app->urlManager->createUrl(['blog/default/activatecomment']);
+
+
 $userid = Yii::$app->user->id;
 $js = <<<JS
 
@@ -56,7 +62,59 @@ $js = <<<JS
     }).fail(function(){
             alert("Error");
     });
-;
+
+    $("#allcomments").on('click', '.modifyinusercentre', function(e){
+        param = {
+            content:$(this).parent().find('textarea').val(),
+            commentid:$(this).parent().attr("id"),
+            _csrf: "{$csrfcode}"
+        };
+
+        $.post("{$urlNewComment}", param, function(data) {
+
+            if (data.status < 0) {
+                alert('评论失败');
+            } else {
+                location.reload();
+            }
+        }, "json");
+    });
+
+    $('#allcomments').on('click','.delete', function(e){
+
+        var id = $(this).parent().attr('id');
+        param = {
+            id:id,
+            _csrf: "{$csrfcode}"
+        };
+
+        $.post("{$urlDeleteComment}", param, function(data) {
+            if (data.status < 0) {
+                alert('删除评论失败');
+            } else {
+                location.reload();
+            }
+        }, "json");
+    });
+
+    $('#allcomments').on('click','.activate', function(e){
+
+        var id = $(this).parent().attr('id');
+        param = {
+            id:id,
+            _csrf: "{$csrfcode}"
+        };
+
+        $.post("{$urlActivateComment}", param, function(data) {
+            if (data.status < 0) {
+                alert('删除评论失败');
+            } else {
+                location.reload();
+            }
+        }, "json");
+    });
+
+
 JS;
 
 $this->registerJs($js);
