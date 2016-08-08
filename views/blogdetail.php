@@ -46,14 +46,14 @@
     <div class="media-body post_reply_content">
         <h3>作者 ： Panda Blog</h3>
         <p class="lead">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariaturp
+            Panda Blog，速度快捷的blog系统，广泛地用于各种企业网站，博客等内容管理应用的场景之中。
         </p>
         <p><strong>Web:</strong> <a href="http://www.chinasoftware.co.uk" target="_blank">www.chinasoftware.co.uk</a></p>
     </div>
 </div>
 
-<h1 id="comments_title">共<span id='comment_count'></span>条评论</h1>
-<div id='allcomments'>
+<div id="allcomments">
+    <h1 id="comments_title">共<span id='comment_count'></span>条评论</h1>
 </div>
 
 
@@ -145,7 +145,7 @@ $js = <<<JS
         dataType: "html",
         success: function(data){
             $('#allcomments').html(data);
-            $('#comment_count').text(data.length);
+            $('#comment_count').text(count(data));
         }
     }).fail(function(){
             alert("Error");

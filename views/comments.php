@@ -1,5 +1,7 @@
 <?php if (count($data)) { ?>
     <div id='allcomments'>
+        <h1 id="comments_title">共<span id='comment_count'><?=count($data)?></span>条评论</h1>
+
         <?php
             $useremail = '';
             if(Yii::$app->user->isGuest == false){

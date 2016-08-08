@@ -17,8 +17,9 @@ $i = 0;
                 <h3 style="width: 100%;text-align: center;font-size:2.3rem;" >我的评论记录</h3>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="padding:0px 17px;">
                 <div id='allcomments'>
+
                 </div>
             </div>
         </div>
