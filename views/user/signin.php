@@ -45,6 +45,24 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
 
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <?= $form->field($model, 'verifyCode', ['options'=>['class'=>''], ])->label(false)->widget(\yii\captcha\Captcha::className(),
+                                    [
+                                        'captchaAction'=>'/blog/default/captcha',
+                                        'template' => '<div style="margin-bottom:3px;margin-left:-5px;">{image}</div><div>{input}</div>',
+                                        'options' => ['class'=>'form-control'],
+                                        'imageOptions' => [
+                                            'title'=>'换一个', 'alt'=>'换一个',
+                                            'style'=>'cursor:pointer;'
+                                        ]
+                                    ])
+                                ?>
+                            </div>
+                        </div>
+
+
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <?= Html::submitButton( Yii::t('app', 'Login'), ['class' => 'btn btn-success', 'name' => 'login-button']) ?>

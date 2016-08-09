@@ -26,7 +26,7 @@ class ModernAssets extends AssetBundle
     ];
 
     public $js = [
-        'js/jquery.js',
+        //'js/jquery.js',
         'js/bootstrap.min.js',
         'js/jquery.prettyPhoto.js',
         'js/jquery.isotope.min.js',
@@ -35,5 +35,7 @@ class ModernAssets extends AssetBundle
     ];
 
     public $depends = [
+        // 'yii\web\YiiAsset',
+        'yii\web\JqueryAsset',
     ];
 }
