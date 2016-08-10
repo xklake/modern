@@ -13,9 +13,8 @@ use yii\web\AssetBundle;
 class ModernAssets extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web/assets';
+    public $baseUrl = '@web/modern/asset';
 
-    //public $sourcePath = '@web/template/modern/assets';
 
     public $css = [
         'css/bootstrap.min.css',
@@ -27,7 +26,7 @@ class ModernAssets extends AssetBundle
     ];
 
     public $js = [
-        'js/jquery.js',
+        //'js/jquery.js',
         'js/bootstrap.min.js',
         'js/jquery.prettyPhoto.js',
         'js/jquery.isotope.min.js',
@@ -36,5 +35,7 @@ class ModernAssets extends AssetBundle
     ];
 
     public $depends = [
+        // 'yii\web\YiiAsset',
+        'yii\web\JqueryAsset',
     ];
 }

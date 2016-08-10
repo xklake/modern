@@ -28,11 +28,19 @@
                             <li><a href="<?=Yii::$app->setting->get('dribbble')?>"><i class="fa fa-weixin"></i></a></li>
                             <li><a href="<?=Yii::$app->setting->get('skype')?>"><i class="fa fa-skype"></i></a></li>
                         </ul>
+
                         <div class="search">
-                            <form role="form">
-                                <input type="text" class="search-form" autocomplete="off" placeholder="搜索博客">
+                            <?php if (Yii::$app->user->isGuest) { ?>
+                                <i class="fa fa-user"></i><a class="uk-icon-user"  href="<?= Yii::$app->urlManager->createAbsoluteUrl(['blog/default/signin']) ?>" rel="nofollow">请登录</a><s>|</s><a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['blog/default/signup']) ?>" rel="nofollow">免费注册</a>
+                            <?php } else { ?>
+                                <i class="fa fa-user"></i><a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['blog/default/usercentre']) ?>">
+                                    <?= isset(Yii::$app->user->identity->profile->surname) ? Yii::$app->user->identity->profile->surname : Yii::$app->user->identity->username ?></a>&nbsp;[<a href="<?= Yii::$app->urlManager->createUrl(['blog/default/logout']) ?>">退出</a>]
+                            <?php } ?>
+
+                            <!--form action="<?= Yii::$app->urlManager->createUrl(['/blog/default/catalog']) ?>" method="get" id="search_fmr" name="search_fmr" role="form">
+                                <input class="search-form" autocomplete="off" type="text" name="keyword" id="searchText" placeholder="搜索博客"/>
                                 <i class="fa fa-search"></i>
-                            </form>
+                            </form-->
                         </div>
                     </div>
                 </div>
