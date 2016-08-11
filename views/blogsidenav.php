@@ -17,7 +17,7 @@
 <div class="widget categories">
     <h3>博客分类</h3>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-11">
             <ul class="blog_category">
                 <?php
                     $allCatalog = \funson86\blog\models\BlogCatalog::find()->where(['status' => \funson86\blog\models\Status::STATUS_ACTIVE])->andwhere(
