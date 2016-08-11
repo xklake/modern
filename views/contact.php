@@ -53,6 +53,10 @@
                                         <?=Yii::$app->setting->get('wechat')?>
                                     </a>
                                 </p>
+								
+								<p>
+									<img src="/images/wechat.png">
+								</p>
                             </address>
                         </li>
                     </ul>
