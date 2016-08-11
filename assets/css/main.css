@@ -52,7 +52,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: #d43133;
+  /*color: #d43133;*/
 }
 
 hr {
