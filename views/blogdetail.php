@@ -8,7 +8,10 @@
 ?>
 
 <div class="blog-item">
-    <img class="img-responsive img-blog" src="<?='/'.$post->banner?>" width="100%" alt="" />
+    <?php if($post->banner != null && $post->banner != "") {?>
+        <img class="img-responsive img-blog" src="<?='/'.$post->banner?>" width="100%" alt="" />
+    <?php } ?>
+
     <div class="row">
         <div class="col-xs-12 col-sm-2 text-center">
             <div class="entry-meta">
