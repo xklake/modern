@@ -19,9 +19,11 @@
             </div>
 
             <div class="col-xs-12 col-sm-10 blog-content">
-                <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->id])?>">
-                    <img class="img-responsive img-blog" src="<?='/'.$item->banner?>" width="100%" alt="" />
-                </a>
+                <?php if($item->banner !=null && $item->banner != ""){?>
+                    <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->id])?>">
+                        <img class="img-responsive img-blog" src="<?='/'.$item->banner?>" width="100%" alt="" />
+                    </a>
+                <?php } ?>
 
                 <h2>
                     <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->id])?>">
