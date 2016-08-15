@@ -148,7 +148,7 @@ $js = <<<JS
         dataType: "html",
         success: function(data){
             $('#allcomments').html(data);
-            $('#comment_count').text(count(data));
+            //$('#comment_count').text(count(data));
         }
     }).fail(function(){
             alert("Error");
