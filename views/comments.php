@@ -1,6 +1,5 @@
 <?php if (count($data)) { ?>
-    <div id='allcomments'>
-        <h1 id="comments_title">共<span id='comment_count'><?=count($data)?></span>条评论</h1>
+        <h1 id="comments_title">共<span id='comment_count'><?=$totalCount?></span>条评论</h1>
 
         <?php
             $useremail = '';
@@ -53,7 +52,6 @@
                 </div>
             </div>
         <?php } ?>
-    </div>
 
     <div style="margin-left:30px;">
         <?= \yii\widgets\LinkPager::widget(['pagination' => $pagination, 'options'=>['class'=>'pagination'], 'activePageCssClass' => 'active']) ?>
