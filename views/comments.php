@@ -1,6 +1,5 @@
 <?php if (count($data)) { ?>
         <h1 id="comments_title">共<span id='comment_count'><?=$totalCount?></span>条评论</h1>
-
         <?php
             $useremail = '';
             if(Yii::$app->user->isGuest == false){
@@ -14,8 +13,20 @@
                 </div>
                 <div class="media-body post_reply_comments" id="<?=$item->id?>">
                     <h3 id="comment_author"><?=$item->author?></h3>
-                    <h4><?=date('Y-m-d H:i', $item->created_at)?></h4>
+                    <h4>
+                        <?php
+                            $timediff = Time() - $item->created_at;
 
+                            if($timediff < 3600 * 24){
+                                echo(Yii::$app->formatter->asTime($item->created_at, 'H:i:s'));
+                            } else if($timediff < 3600 * 24 * 365){
+                                echo(substr(Yii::$app->formatter->asDate($item->created_at,'Y-m-d'),5) . ' '. Yii::$app->formatter->asTime($item->created_at));
+                            } else {
+                                echo(Yii::$app->formatter->asDate($item->created_at, 'Y-m-d'));
+                            }
+                        ?>
+                    </h4>    
+                    
                     <?php if($isbackend === true) { ?>
                         <p>
                             <form role="form" class='contact-form'><textarea id='content' class='form-control' placeholder='评论内容' rows='4'><?=trim($item->content)?></textarea></form>
