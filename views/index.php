@@ -12,7 +12,7 @@ $index = 0;
 
 
 <section id="main-slider" class="no-margin">
-    <div class="carousel slide">
+    <div class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php foreach($banners as $item) {
             if($index == 0){
@@ -24,7 +24,7 @@ $index = 0;
             $index ++ ; }?>
         </ol>
 
-        <div class="carousel-inner">
+        <div class="carousel-inner"  role="listbox">
             <?php
             $index = 0;
             foreach($banners as $item) {
@@ -54,10 +54,10 @@ $index = 0;
             <?php $index ++; } ?>
         </div><!--/.carousel-inner-->
     </div><!--/.carousel-->
-    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+    <a class="prev hidden-xs" href="main-slider" data-slide="prev" role="button">
         <i class="fa fa-chevron-left"></i>
     </a>
-    <a class="next hidden-xs" href="#main-slider" data-slide="next">
+    <a class="next hidden-xs" href="main-slider" data-slide="next" role="button">
         <i class="fa fa-chevron-right"></i>
     </a>
 </section><!--/#main-slider-->
