@@ -25,7 +25,7 @@ use yii\helpers\Html;
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon.ico">
     <?php $this->head() ?>
 </head><!--/head-->
 
