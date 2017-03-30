@@ -14,7 +14,7 @@
                 <div class="col-sm-6 col-xs-4">
                     <div class="top-number">
                         <p>
-                            英国中软软件
+英国中软软件
                         </p>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                             <?php if (Yii::$app->user->isGuest) { ?>
                                 <i class="fa fa-user"></i><a class="uk-icon-user"  href="<?= Yii::$app->urlManager->createAbsoluteUrl(['blog/default/signin']) ?>" rel="nofollow">请登录</a><s>|</s><a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['blog/default/signup']) ?>" rel="nofollow">免费注册</a>
                             <?php } else { ?>
-                                <i class="fa fa-user"></i><a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['blog/default/usercentre']) ?>">
+                                <i class="fa fa-user"></i><a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['/blog/default/usercentre']) ?>">
                                     <?= isset(Yii::$app->user->identity->profile->surname) ? Yii::$app->user->identity->profile->surname : Yii::$app->user->identity->username ?></a>&nbsp;[<a href="<?= Yii::$app->urlManager->createUrl(['blog/default/logout']) ?>">退出</a>]
                             <?php } ?>
 

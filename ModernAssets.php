@@ -13,7 +13,7 @@ use yii\web\AssetBundle;
 class ModernAssets extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web/modern/asset';
+    public $baseUrl = '@web/modern/assets';
 
 
     public $css = [
