@@ -58,7 +58,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?=Yii::$app->homeUrl?>">
-                    <img src="<?=Yii::$app->urlManager->getHostInfo().Yii::$app->getImages('logo')->image?>" alt="<?=Yii::$app->setting->get('siteName')?>">
+                    <img src="<?=Yii::$app->urlManager->getHostInfo().'/'.Yii::$app->getImages('logo')->image?>" alt="<?=Yii::$app->setting->get('siteName')?>">
                 </a>
             </div>
 
