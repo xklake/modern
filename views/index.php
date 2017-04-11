@@ -19,7 +19,7 @@ $index = 0;
             ?>
             <li data-target="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider'?>" data-slide-to="<?=$index?>" class="active"></li>
             <?} else { ?>
-            <li data-target="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider?>" data-slide-to="<?=$index?>"></li>
+            <li data-target="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider'?>" data-slide-to="<?=$index?>"></li>
             <? }
             $index ++ ; }?>
         </ol>
@@ -53,10 +53,10 @@ $index = 0;
             <?php $index ++; } ?>
         </div><!--/.carousel-inner-->
     </div><!--/.carousel-->
-    <a class="prev hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'/main-slider'?>" data-slide="prev" role="button">
+    <a class="prev hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider'?>" data-slide="prev" role="button">
         <i class="fa fa-chevron-left"></i>
     </a>
-    <a class="next hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'/main-slider'?>" data-slide="next" role="button">
+    <a class="next hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider'?>" data-slide="next" role="button">
         <i class="fa fa-chevron-right"></i>
     </a>
 </section><!--/#main-slider-->
@@ -137,7 +137,7 @@ $index = 0;
         ?>
             <div class="portfolio-item <?=$item->keywords?> col-xs-12 col-sm-4 col-md-3">
                 <div class="recent-work-wrap">
-                    <img class="img-responsive" src="<?=<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>" alt="<?=$item->name?>">
+                    <img class="img-responsive" src="<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>" alt="<?=$item->name?>">
                     <div class="overlay">
                         <div class="recent-work-inner">
                             <h3><a href="<?=$item->url?>"><?=$item->name?></a></h3>

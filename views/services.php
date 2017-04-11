@@ -96,7 +96,7 @@
                     ?>
                     <div class="col-md-4 wow fadeInDown">
                         <div class="clients-comments text-center">
-                            <img src="<?='/'.$item->image?>" class="img-circle" alt="">
+                            <img src="<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>" class="img-circle" alt="">
                             <h3>
                                 <?=$item->description?>
                             </h3>

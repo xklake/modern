@@ -34,14 +34,18 @@
                 foreach($banners as $item){?>
                     <div class="portfolio-item <?=$item->keywords?> col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
-                            <img class="img-responsive" src="<?='/'.$item->image?>" alt="<?=$item->name?>">
+                            <img class="img-responsive" src="<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>" alt="<?=$item->name?>">
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                    <h3><a href="<?=$item->url?>"><?=$item->name?></a></h3>
+                                    <h3>
+                                        <!--a href="<?=$item->url?>" target="_blank" ref="nofollow"-->
+                                            <?=$item->name?> : <?=$item->url?>
+                                        <!--/a-->
+                                    </h3>
                                     <p><?=$item->description?></p>
-                                    <a class='preview' href="<?=$item->url?>" target="_blank" ref="nofollow">
+                                    <!--a class='preview' href="<?=$item->url?>" target="_blank" ref="nofollow"-->
                                         <i class="fa fa-eye"></i>查看
-                                    </a>
+                                    <!--/a-->
                                 </div>
                             </div>
                         </div>

@@ -18,7 +18,7 @@
                 <ul class="pull-right">
                     <?php foreach(Yii::$app->getCatalogs() as $item) {?>
                         <li>
-                            <a href="<?=$item['url']?>">
+                            <a href="<?=Yii::$app->urlManager->getHostInfo().$item['url']?>">
                                 <?=$item['surname']?>
                             </a>
                         </li>

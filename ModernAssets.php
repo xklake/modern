@@ -8,6 +8,7 @@
 
 namespace frontend\web\template\modern;
 use yii\web\AssetBundle;
+use yii;
 
 
 class ModernAssets extends AssetBundle
