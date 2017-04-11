@@ -125,12 +125,12 @@
 
 
 <?php
-$urlNewComment = Yii::$app->urlManager->createUrl(['blog/default/newcomment']);
-$urlModifyComment = Yii::$app->urlManager->createUrl(['blog/default/modifycomment']);
-$urlDeleteComment = Yii::$app->urlManager->createUrl(['blog/default/deletecomment']);
+$urlNewComment = Yii::$app->urlManager->createAbsoluteUrl(['blog/default/newcomment']);
+$urlModifyComment = Yii::$app->urlManager->createAbsoluteUrl(['blog/default/modifycomment']);
+$urlDeleteComment = Yii::$app->urlManager->createAbsoluteUrl(['blog/default/deletecomment']);
 
 $csrfcode = Yii::$app->request->getCsrfToken();
-$urlComment = Yii::$app->urlManager->createUrl(['blog/default/comment']);
+$urlComment = Yii::$app->urlManager->createAbsoluteUrl(['blog/default/comment']);
 
 
 $this->registerJs('

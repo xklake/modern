@@ -17,9 +17,9 @@ $index = 0;
             <?php foreach($banners as $item) {
             if($index == 0){
             ?>
-            <li data-target="#main-slider" data-slide-to="<?=$index?>" class="active"></li>
+            <li data-target="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider'?>" data-slide-to="<?=$index?>" class="active"></li>
             <?} else { ?>
-            <li data-target="#main-slider" data-slide-to="<?=$index?>"></li>
+            <li data-target="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider?>" data-slide-to="<?=$index?>"></li>
             <? }
             $index ++ ; }?>
         </ol>
@@ -30,9 +30,9 @@ $index = 0;
             foreach($banners as $item) {
                 if($index == 0){
                 ?>
-                    <div class="item active" style="background-image: url(<?=$item->image?>)">
+                    <div class="item active" style="background-image: url(<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>)">
                 <?php } else { ?>
-                        <div class="item" style="background-image: url(<?=$item->image?>)">
+                        <div class="item" style="background-image: url(<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>)">
                 <?php } ?>
                     <div class="container">
                         <div class="row slide-margin">
@@ -45,7 +45,6 @@ $index = 0;
 
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
-                                    <!--img src="/images/modern/slider/img1.png" class="img-responsive"-->
                                 </div>
                             </div>
                         </div>
@@ -54,10 +53,10 @@ $index = 0;
             <?php $index ++; } ?>
         </div><!--/.carousel-inner-->
     </div><!--/.carousel-->
-    <a class="prev hidden-xs" href="main-slider" data-slide="prev" role="button">
+    <a class="prev hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'/main-slider'?>" data-slide="prev" role="button">
         <i class="fa fa-chevron-left"></i>
     </a>
-    <a class="next hidden-xs" href="main-slider" data-slide="next" role="button">
+    <a class="next hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'/main-slider'?>" data-slide="next" role="button">
         <i class="fa fa-chevron-right"></i>
     </a>
 </section><!--/#main-slider-->
@@ -76,7 +75,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-rocket"></i>
-                        <h2>网站48小时完成</h2>
+                        <h2>网站设计，网站制作</h2>
                         <h3>现代化布局设计，适用多种设备，高精度展示</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -84,7 +83,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-industry"></i>
-                        <h2>行业网站快速搭建</h2>
+                        <h2>行业网站设计，快速网页设计</h2>
                         <h3>内建餐饮，留学，旅游，中医，SPA，商城等系统</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -101,8 +100,8 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-cloud-download"></i>
-                        <h2>阿里云服务</h2>
-                        <h3>阿里云整合和集成，适用网站客户在大陆</h3>
+                        <h2>域名，空间和服务器管理</h2>
+                        <h3>域名申请，空间和服务器的申请和管理</h3>
                     </div>
                 </div><!--/.col-md-4-->
 
@@ -117,7 +116,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-bar-chart"></i>
-                        <h2>谷歌SEO和网络推广</h2>
+                        <h2>谷歌SEO，网络推广</h2>
                         <h3>针对华人企业提供谷歌SEO的推广，网站流量监控</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -138,7 +137,7 @@ $index = 0;
         ?>
             <div class="portfolio-item <?=$item->keywords?> col-xs-12 col-sm-4 col-md-3">
                 <div class="recent-work-wrap">
-                    <img class="img-responsive" src="<?='/'.$item->image?>" alt="<?=$item->name?>">
+                    <img class="img-responsive" src="<?=<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>" alt="<?=$item->name?>">
                     <div class="overlay">
                         <div class="recent-work-inner">
                             <h3><a href="<?=$item->url?>"><?=$item->name?></a></h3>

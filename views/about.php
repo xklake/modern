@@ -5,6 +5,7 @@
  * Date: 6/10/16
  * Time: 11:35 AM
  */
+ use yii; 
 ?>
 
 <section id="about-us">
@@ -26,21 +27,23 @@
 
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="/images/modern/slider_one.jpg" class="img-responsive" alt="">
+                        <img src="<?=<?=Yii::$app->urlManager->getHostInfo().'/images/modern/slider_one.jpg'?>" class="img-responsive" alt="">
                     </div>
+
                     <div class="item">
-                        <img src="/images/modern/slider_one.jpg" class="img-responsive" alt="">
+                        <img src="<?=<?=Yii::$app->urlManager->getHostInfo().'/images/modern/slider_one.jpg'?>" class="img-responsive" alt="">
                     </div>
+                    
                     <div class="item">
-                        <img src="/images/modern/slider_one.jpg" class="img-responsive" alt="">
+                        <img src="<?=<?=Yii::$app->urlManager->getHostInfo().'/images/modern/slider_one.jpg'?>" class="img-responsive" alt="">
                     </div>
                 </div>
 
-                <a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
+                <a class="left carousel-control hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'/#carousel-slider'?>" data-slide="prev">
                     <i class="fa fa-angle-left"></i>
                 </a>
 
-                <a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
+                <a class=" right carousel-control hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'#carousel-slider'?>" data-slide="next">
                     <i class="fa fa-angle-right"></i>
                 </a>
             </div> <!--/#carousel-slider-->
@@ -110,7 +113,7 @@
                     <div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                         <div class="media">
                             <div class="pull-left">
-                                <a href="#"><img class="media-object" src="/images/modern/man1.jpg" alt=""></a>
+                                <a href="#"><img class="media-object" src="<?=Yii::$app->urlManager->getHostInfo().'/images/modern/man1.jpg'?>" alt=""></a>
                             </div>
                             <div class="media-body">
                                 <h4>Jhon Doe</h4>

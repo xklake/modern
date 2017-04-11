@@ -27,7 +27,7 @@
                         if ($item->template == \funson86\blog\models\BlogCatalog::TEMPLATE_MULTIPLY) {
                             ?>
                             <li>
-                                <a href="<?=Yii::$app->getUrlManager()->createUrl(['/blog/default/catalog/','id'=>$item->id])?>">
+                                <a href="<?=Yii::$app->getUrlManager()->createAbsoluteUrl(['/blog/default/catalog/','id'=>$item->id])?>">
                                     <?=$item->surname?>
                                     <span class="badge"><?=$item->getPostsCount()?></span>
                                 </a>
@@ -53,10 +53,17 @@
                         <img src="/images/avatar3.png" alt=""  />
                         <p><?=$item->content?></p>
                         <div class="entry-meta small muted">
-                            <span><a href="#"><?=$item->author?></a></span <span>评论  <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->blogPost->id])?>"><?=$item->blogPost->title?></a></span>
+                          <span>
+                            <a href="Yii::$app->urlManager->getHostInfo().'/#'">
+                              <?=$item->author?>
+                            </a>
+                          </span>
+                          <span>评论  
+                            <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->blogPost->id])?>"><?=$item->blogPost->title?>
+                            </a>
+                          </span>
                         </div>
                     </div>
-
                     <div style="clear:both"></div>
             <?php } ?>
         </div>
@@ -73,7 +80,12 @@
                     $archives = \funson86\blog\models\BlogCatalog::getArchive();
                     foreach($archives as $item) {
                 ?>
-                    <li><a href="<?=Yii::$app->getUrlManager()->createUrl(['/blog/default/catalog/','createdmonth'=>$item['time']])?>"><i class="fa fa-angle-double-right"></i> <?=$item['time']?> <span class="pull-right">(<?=$item['count']?>)</span></a></li>
+                    <li>
+                      <a href="<?=Yii::$app->getUrlManager()->createAbsoluteUrl(['/blog/default/catalog/','createdmonth'=>$item['time']])?>"><i class="fa fa-angle-double-right"></i> <?=$item['time']?> 
+                          <span class="pull-right">(<?=$item['count']?>)
+                          </span>
+                      </a>
+                    </li>
                 <?php
                     }
                 ?>
@@ -88,7 +100,9 @@
         <?php $tags = array_reverse(\funson86\blog\models\BlogTag::findTagWeights(20));
             foreach($tags as $key => $val){
         ?>
-            <li><a class="btn btn-xs btn-primary" href="<?=Yii::$app->getUrlManager()->createUrl(['/blog/default/catalog/','tag'=>$key])?>"><?=$key?> (<?=$val?>)</a></li>
+            <li>
+              <a class="btn btn-xs btn-primary" href="<?=Yii::$app->getUrlManager()->createAbsoluteUrl(['/blog/default/catalog/','tag'=>$key])?>"><?=$key?> (<?=$val?>)</a>
+            </li>
         <?php } ?>
     </ul>
 </div><!--/.tags-->

@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; <?=date('Y')?> <a target="_blank" href="/" title="<?=Yii::$app->setting->get('copyright')?>">chinasoftware.co.uk</a>. <?=Yii::$app->setting->get('copyright') ?>
+                &copy; <?=date('Y')?> <a target="_blank" href="<?=Yii::$app->urlManager->getHostInfo()?>" title="<?=Yii::$app->setting->get('copyright')?>">chinasoftware.co.uk</a>. <?=Yii::$app->setting->get('copyright') ?>
             </div>
             <div class="col-sm-6">
                 <ul class="pull-right">

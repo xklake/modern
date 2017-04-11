@@ -13,7 +13,7 @@ use yii\web\AssetBundle;
 class ModernAssets extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web/modern/assets';
+    public $baseUrl = '/modern/assets';
 
 
     public $css = [
@@ -26,7 +26,7 @@ class ModernAssets extends AssetBundle
     ];
 
     public $js = [
-        //'js/jquery.js',
+        'js/jquery.js',
         'js/bootstrap.min.js',
         'js/jquery.prettyPhoto.js',
         'js/jquery.isotope.min.js',
@@ -36,6 +36,15 @@ class ModernAssets extends AssetBundle
 
     public $depends = [
         // 'yii\web\YiiAsset',
-        'yii\web\JqueryAsset',
+        //'yii\web\JqueryAsset',
     ];
+
+	public function init()
+    {
+        if($this->baseUrl != null){
+            $this->baseUrl = Yii::$app->urlManager->getHostInfo().$this->baseUrl;
+        }
+
+        parent::init();
+    }
 }
