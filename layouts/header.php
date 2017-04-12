@@ -22,7 +22,7 @@
                 <div class="col-sm-6 col-xs-8">
                     <div class="top-number">
                         <p class="text-right">
-                            <span >15年专注英国网站设计,软件开发</span>
+                            <span >15年专注英国<a href="<?=Yii::$app->urlManager->getHostInfo().Yii::$app->homeUrl?>">网站设计</a>,<a href="<?=Yii::$app->urlManager->getHostInfo().Yii::$app->homeUrl?>">网站开发</a></span>
                         </p>
                     </div>
                 </div>

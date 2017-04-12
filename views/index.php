@@ -73,7 +73,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-rocket"></i>
-                        <div class='div-h2'>网站设计，网站制作</div>
+                        <div class='div-h2'>网站设计，网站开发</div>
                         <h3>响应式布局设计，适用多种设备，高精度展示</h3>
                     </div>
                 </div><!--/.col-md-4-->

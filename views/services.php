@@ -20,7 +20,7 @@
                     <?= Yii::$app->getHtmlBlock('service-website')?>
                     <div class="feature-wrap">
                         <i class="fa fa-internet-explorer"></i>
-                        <h2>网站设计，网站制作</h2>
+                        <h2><a href="<?=Yii::$app->urlManager->getHostInfo().Yii::$app->homeUrl?>">网站设计</a>,<a href="<?=Yii::$app->urlManager->getHostInfo().Yii::$app->homeUrl?>">网站开发<a href="<?=Yii::$app->urlManager->getHostInfo().Yii::$app->homeUrl?>"></h2>
                         <h3>响应式布局设计，适用多种设备，高精度展示</h3>
                     </div>
                 </div><!--/.col-md-4-->

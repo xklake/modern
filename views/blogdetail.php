@@ -9,12 +9,12 @@
 
 <div class="blog-item">
     <?php if($post->banner != null && $post->banner != "") {?>
-        <img class="img-responsive img-blog" src="<?='/'.$post->banner?>" width="100%" alt="" />
+        <img class="img-responsive img-blog" src="<?=Yii::$app->urlManager->getHostInfo().'/'.$post->banner?>" width="100%" alt="" />
     <?php } ?>
 
     <div class="row">
         <div class="col-xs-12 col-sm-2 text-center">
-            <div class="entry-meta">
+            <div class="entry-meta text-center">
                 <span id="publish_date"><?=substr(date('Y', $post->created_at), 2).'年'.date('m', $post->created_at).'月'?></span>
                 <span><i class="fa fa-user"></i> <a href="#"><?=$post->user->username?></a></span>
                 <span><i class="fa fa-comment"></i> <a href=""><?=$post->getCommentsCount()?> 评论</a></span>
@@ -39,19 +39,29 @@
 
 <div class="media reply_section">
     <div class="pull-left post_reply text-center">
-        <a href="#"><img src="/images/avatar3.png" class="img-circle" alt="" /></a>
+        <img src="<?=Yii::$app->urlManager->getHostInfo().'/images/avatar3.png'?>" class="img-circle" alt="网站制作" />
         <ul>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+            <li><i class="fa fa-facebook"></i></li>
+            <li><i class="fa fa-twitter"></i></li>
+            <li><i class="fa fa-google-plus"></i></li>
         </ul>
     </div>
     <div class="media-body post_reply_content">
-        <h3>作者 ： Panda Blog</h3>
+        <h3>作者 ：英国中软软件</h3>
         <p class="lead">
-            Panda Blog，速度快捷的blog系统，广泛地用于各种企业网站，博客等内容管理应用的场景之中。
+            <?php
+                $intro = Yii::$app->getHtmlBlock('auth-intro');
+                if($intro != null)
+                {
+                    echo($intro);
+                }
+            ?>
         </p>
-        <p><strong>Web:</strong> <a href="http://www.chinasoftware.co.uk" target="_blank">www.chinasoftware.co.uk</a></p>
+
+        <p>
+            <strong>网站:</strong>
+            <a href="<?=Yii::$app->urlManager->getHostInfo()?>" target="_blank">英国中软软件官网</a>
+        </p>
     </div>
 </div>
 
