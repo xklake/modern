@@ -97,7 +97,7 @@
                 <div class="form-group">
                     <label>邮箱 *</label>
                     <?php
-                    if($isGuest) {  ?>
+                    if($isGuest && isset(Yii::$app->user->identity)) {  ?>
                         <input type='text'  id='email' class='form-control' placeholder='邮箱'>
                     <?php } else { ?>
                         <input type='text'  id='email' class='form-control' placeholder='邮箱' disabled='disabled' value="<?=Yii::$app->user->identity->email?>">
