@@ -87,7 +87,7 @@
                 <div class="form-group">
                     <label>昵称 *</label>
                     <?php
-                    if($isGuest) {  ?>
+                    if($isGuest || !isset(Yii::$app->user->identity) ||  !isset(Yii::$app->user->profile) || !isset(Yii::$app->user->identity->profile->surname)) {  ?>
                         <input type='text'  id='author' class='form-control' placeholder='昵称'>
                     <?php } else { ?>
                         <input type='text'  id='author' class='form-control' placeholder='昵称' disabled='disabled' value="<?=Yii::$app->user->identity->profile->surname?>">
@@ -97,7 +97,7 @@
                 <div class="form-group">
                     <label>邮箱 *</label>
                     <?php
-                    if($isGuest && isset(Yii::$app->user->identity)) {  ?>
+                    if($isGuest || !isset(Yii::$app->user->identity) || !isset(Yii::$app->user->identity->email)) {  ?>
                         <input type='text'  id='email' class='form-control' placeholder='邮箱'>
                     <?php } else { ?>
                         <input type='text'  id='email' class='form-control' placeholder='邮箱' disabled='disabled' value="<?=Yii::$app->user->identity->email?>">
