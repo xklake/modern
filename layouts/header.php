@@ -14,13 +14,17 @@
                 <div class="col-sm-6 col-xs-4">
                     <div class="top-number">
                         <p>
-英国中软软件
+                            英国中软软件
                         </p>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-xs-8">
-                  <span>15年专注英国网站设计,软件开发</span>                  
+                    <div class="top-number">
+                        <p class="text-right">
+                            <span >15年专注英国网站设计,软件开发</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div><!--/.container-->

@@ -5,11 +5,9 @@
  * Date: 6/9/16
  * Time: 5:32 PM
  */
-
 $banners = Yii::$app->getImageByGroup('banner');
 $index = 0;
 ?>
-
 
 <section id="main-slider" class="no-margin">
     <div class="carousel slide" data-ride="carousel">
@@ -38,8 +36,8 @@ $index = 0;
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1"><?=$item->keywords?></h1>
-                                    <h2 class="animation animated-item-2"><?=$item->description?></h2>
+                                    <div class="animation animated-item-1" style="font-size: 4rem;line-height: 50px;color: #fff;"><?=$item->keywords?></div>
+                                    <div class="animation animated-item-2" style="font-size: 2.8rem;margin-top:35px;color: #fff; "><?=$item->description?></div>
                                 </div>
                             </div>
 
@@ -64,7 +62,7 @@ $index = 0;
 <section id="feature" >
     <div class="container">
         <div class="center wow fadeInDown">
-            <h2>服务项目</h2>
+            <div class='div-h2'>服务项目</div>
             <p class="lead">
                 针对在英华人业务的需要，我们提供以下的特色服务
             </p>
@@ -75,7 +73,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-rocket"></i>
-                        <h2>网站设计，网站制作</h2>
+                        <div class='div-h2'>网站设计，网站制作</div>
                         <h3>响应式布局设计，适用多种设备，高精度展示</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -83,8 +81,8 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-industry"></i>
-                        <h2>行业网站设计，快速网页设计</h2>
-                        <h3>内建餐饮，留学，旅游，中医，SPA，商城等系统</h3>
+                        <div class='div-h2'>行业网站设计，快速网页设计</div>
+                        <h3>内建餐饮，留学，旅游，中医，SPA，商城等模板</h3>
                     </div>
                 </div><!--/.col-md-4-->
 
@@ -92,7 +90,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-weixin"></i>
-                        <h2>微信应用开发和整合</h2>
+                        <div class='div-h2'>微信应用开发和整合</div>
                         <h3>微网页开发，微信公众号申请，对接，微信应用开发</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -100,15 +98,15 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-cloud-download"></i>
-                        <h2>域名，空间和服务器管理</h2>
-                        <h3>域名申请，云空间的申请和管理</h3>
+                        <div class='div-h2'>域名，空间和服务器管理</div>
+                        <h3>域名申请，云空间的申请管理</h3>
                     </div>
                 </div><!--/.col-md-4-->
 
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-image"></i>
-                        <h2>网站管理和运维</h2>
+                        <div class='div-h2'>网站管理和运维</div>
                         <h3>网站运维，监控，分析，事故处理，速度优化</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -116,7 +114,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-bar-chart"></i>
-                        <h2>搜索引擎优化和网络推广</h2>
+                        <div class='div-h2'>搜索引擎优化和网络推广</div>
                         <h3>针对华人企业提供谷歌，百度SEO推广，网站流量监控</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -128,7 +126,7 @@ $index = 0;
 <section id="recent-works">
     <div class="container">
         <div class="center wow fadeInDown">
-            <h2>近期网站设计作品</h2>
+            <div class='div-h2'>近期网站设计作品</div>
         </div>
 
         <div class="row">
@@ -157,7 +155,7 @@ $index = 0;
 <section id="" class="service-item">
     <div class="container">
         <div class="center wow fadeInDown">
-            <h2>服务项目</h2>
+            <div class='div-h2'>服务项目</div>
         </div>
 
         <div class="row">
@@ -167,7 +165,7 @@ $index = 0;
 
                     <div class="feature-wrap">
                         <i class="fa fa-internet-explorer"></i>
-                        <h2>网站开发</h2>
+                        <div class='div-h2'>网站开发</div>
                         <h3>基于html5，css3的个人，企业网站设计，网站研发</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -175,7 +173,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-apple"></i>
-                        <h2>App开发</h2>
+                        <div class='div-h2'>App开发</div>
                         <h3>iOS，Android app程序设计研发</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -183,7 +181,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-weixin"></i>
-                        <h2>微信整合</h2>
+                        <div class='div-h2'>微信整合</div>
                         <h3>基于微信平台的微网站，微商城的研发和微信推广</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -191,7 +189,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-google"></i>
-                        <h2>网站推广营销</h2>
+                        <div class='div-h2'>网站推广营销</div>
                         <h3>谷歌，百度SEO服务，社交网络推广，微信推广</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -199,7 +197,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-cloud"></i>
-                        <h2>虚拟空间和云服务</h2>
+                        <div class='div-h2'>虚拟空间和云服务</div>
                         <h3>提供高质量虚拟空间和云服务</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -207,7 +205,7 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-server"></i>
-                        <h2>维护运营</h2>
+                        <div class='div-h2'>维护运营</div>
                         <h3>服务的运营和维护，监控，安全与升级</h3>
                     </div>
                 </div><!--/.col-md-4-->
@@ -221,7 +219,7 @@ $index = 0;
         <div class="row">
             <div class="col-sm-6 wow fadeInDown">
                 <div class="skill">
-                    <h2>我们的技能</h2>
+                    <div class='div-h2'>我们的技能</div>
                     <div class="progress-wrap">
                         <h3>图形设计</h3>
                         <div class="progress">
@@ -264,7 +262,7 @@ $index = 0;
 
             <div class="col-sm-6 wow fadeInDown">
                 <div class="skill">
-                    <h2>&nbsp;</h2>
+                    <div class='div-h2'>&nbsp;</div>
 
                     <div class="progress-wrap">
                         <h3>Database</h3>
@@ -319,7 +317,7 @@ $index = 0;
                             </a>
                     </div>
                     <div class="media-body">
-                        <h2>技术咨询</h2>
+                        <div class='div-h2'>技术咨询</div>
                         <p><?=Yii::$app->getTextBlock('home-contact-content')->content?>
                             <a href="tel:<?=Yii::$app->setting->get('mobile')?>">
                                 <?=Yii::$app->setting->get('mobile')?>

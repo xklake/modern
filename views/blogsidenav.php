@@ -5,11 +5,10 @@
  * Date: 7/28/16
  * Time: 2:49 PM
  */
- use yii;
 ?>
 
 <div class="widget search">
-    <form action="<?= Yii::$app->urlManager->createAbsoluteUrl(['/blog/default/catalog']) ?>" method="get" id="search_fm" name="search_fm" role="form">
+    <form action="<?=Yii::$app->urlManager->createAbsoluteUrl(['/blog/default/catalog']) ?>" method="get" id="search_fm" name="search_fm" role="form">
         <input class="form-control search_box" autocomplete="off" type="text" name="keyword" id="searchText" placeholder="搜索博客......"/>
     </form>
 </div><!--/.search-->
