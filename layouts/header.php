@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="col-sm-6 col-xs-8">
-
+                  <span>15年专注英国网站设计,软件开发</span>                  
                 </div>
             </div>
         </div><!--/.container-->
@@ -35,9 +35,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=Yii::$app->homeUrl?>">
-                    <img src="<?=Yii::$app->urlManager->getHostInfo().'/'.Yii::$app->getImages('logo')->image?>" alt="<?=Yii::$app->setting->get('siteName')?>">
-                </a>
+                <a class="navbar-brand" href="<?=Yii::$app->urlManager->getHostInfo().Yii::$app->homeUrl?>">
+                    <img src="<?=Yii::$app->urlManager->getHostInfo().'/'.Yii::$app->getImages('logo')->image?>" alt="网站设计">
+                    </a>
             </div>
 
             <div class="collapse navbar-collapse navbar-right">

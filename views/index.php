@@ -64,7 +64,7 @@ $index = 0;
 <section id="feature" >
     <div class="container">
         <div class="center wow fadeInDown">
-            <h2>特色服务</h2>
+            <h2>服务项目</h2>
             <p class="lead">
                 针对在英华人业务的需要，我们提供以下的特色服务
             </p>
@@ -76,7 +76,7 @@ $index = 0;
                     <div class="feature-wrap">
                         <i class="fa fa-rocket"></i>
                         <h2>网站设计，网站制作</h2>
-                        <h3>现代化布局设计，适用多种设备，高精度展示</h3>
+                        <h3>响应式布局设计，适用多种设备，高精度展示</h3>
                     </div>
                 </div><!--/.col-md-4-->
 
@@ -92,8 +92,8 @@ $index = 0;
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-weixin"></i>
-                        <h2>微信应用</h2>
-                        <h3>微网站开发，微信公众号申请，对接，微信应用开发</h3>
+                        <h2>微信应用开发和整合</h2>
+                        <h3>微网页开发，微信公众号申请，对接，微信应用开发</h3>
                     </div>
                 </div><!--/.col-md-4-->
 
@@ -101,23 +101,23 @@ $index = 0;
                     <div class="feature-wrap">
                         <i class="fa fa-cloud-download"></i>
                         <h2>域名，空间和服务器管理</h2>
-                        <h3>域名申请，空间和服务器的申请和管理</h3>
+                        <h3>域名申请，云空间的申请和管理</h3>
                     </div>
                 </div><!--/.col-md-4-->
 
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-image"></i>
-                        <h2>七牛图片服务云</h2>
-                        <h3>七牛图片+视频云，图片高速存储，节省大量费用</h3>
+                        <h2>网站管理和运维</h2>
+                        <h3>网站运维，监控，分析，事故处理，速度优化</h3>
                     </div>
                 </div><!--/.col-md-4-->
 
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
                         <i class="fa fa-bar-chart"></i>
-                        <h2>谷歌SEO，网络推广</h2>
-                        <h3>针对华人企业提供谷歌SEO的推广，网站流量监控</h3>
+                        <h2>搜索引擎优化和网络推广</h2>
+                        <h3>针对华人企业提供谷歌，百度SEO推广，网站流量监控</h3>
                     </div>
                 </div><!--/.col-md-4-->
             </div><!--/.services-->
@@ -128,7 +128,7 @@ $index = 0;
 <section id="recent-works">
     <div class="container">
         <div class="center wow fadeInDown">
-            <h2>近期作品</h2>
+            <h2>近期网站设计作品</h2>
         </div>
 
         <div class="row">

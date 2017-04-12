@@ -5,10 +5,11 @@
  * Date: 7/28/16
  * Time: 2:49 PM
  */
+ use yii;
 ?>
 
 <div class="widget search">
-    <form action="<?= Yii::$app->urlManager->createUrl(['/blog/default/catalog']) ?>" method="get" id="search_fm" name="search_fm" role="form">
+    <form action="<?= Yii::$app->urlManager->createAbsoluteUrl(['/blog/default/catalog']) ?>" method="get" id="search_fm" name="search_fm" role="form">
         <input class="form-control search_box" autocomplete="off" type="text" name="keyword" id="searchText" placeholder="搜索博客......"/>
     </form>
 </div><!--/.search-->
@@ -50,7 +51,7 @@
                 $comments = \funson86\blog\models\BlogComment::findRecentComments(10);
                 foreach($comments as $item){ ?>
                     <div class="single_comments">
-                        <img src="/images/avatar3.png" alt=""  />
+                        <img src="/images/avatar3.png" alt="网页设计"/>
                         <p><?=$item->content?></p>
                         <div class="entry-meta small muted">
                           <span>

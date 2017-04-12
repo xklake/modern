@@ -7,8 +7,6 @@
  */
 ?>
 
-
-
 <section id="contact-info">
     <div class="center">
         <?= Yii::$app->getHtmlBlock('modern-contact-lead')->content; ?>
@@ -54,9 +52,9 @@
                                     </a>
                                 </p>
 								
-								<p>
-									<img src="<?=Yii::$app->urlManager->getHostInfo().'/images/wechat.png'?>">
-								</p>
+								              <p>
+									              <img src="<?=Yii::$app->urlManager->getHostInfo().'/images/wechat.png'?>" alt='网页设计'>
+								              </p>
                             </address>
                         </li>
                     </ul>
