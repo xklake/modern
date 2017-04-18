@@ -7,6 +7,9 @@
  */
 $banners = Yii::$app->getImageByGroup('banner');
 $index = 0;
+
+$news = \funson86\blog\models\BlogPost::find()->where(['status'=>\funson86\blog\models\Status::STATUS_ACTIVE])->limit(4)->orderBy(['created_at' => SORT_DESC])->all();
+
 ?>
 
 <section id="main-slider" class="no-margin">
@@ -306,6 +309,41 @@ $index = 0;
     </div><!--/.container-->
 </section><!--/#middle-->
 
+<section id="index-news">
+    <div class="container">
+        <div class="row">
+
+            <div class="text-center">
+                <span style="font-size: 2rem; ">最新动态</span>
+            </div>
+            <?php foreach($news as $item){
+            if(isset($item->banner)){
+            ?>
+                <div class="col-xs-12 col-sm-3">
+                    <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->id])?>">
+                        <img class="img-responsive  img-thumbnail" src="<?=Yii::$app->urlManager->getHostInfo().'/'.$item->banner?>">
+                    </a>
+                </div>
+                <?php } ?>
+
+                <div class="col-xs-12 col-sm-9">
+                    <div style="margin:10px 0px 10px 0px;">
+                        <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->id])?>">
+                            <h4 style="margin-top:0px;"><?=$item->title?></h4>
+                        </a>
+                    </div>
+
+                    <div>
+                        <blockquote>
+                            <?=$item->brief?>
+                        </blockquote>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</section>
+
 <section id="conatcat-info">
     <div class="container">
         <div class="row">
@@ -313,8 +351,8 @@ $index = 0;
                 <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="pull-left">
                         <a href="tel:<?=Yii::$app->setting->get('mobile')?>">
-                            <i class="fa fa-phone"></i>
-                            </a>
+                            <i class="fa fa-phone" style="color: darkred;"></i>
+                        </a>
                     </div>
                     <div class="media-body">
                         <div class='div-h2'>技术咨询</div>
@@ -329,3 +367,5 @@ $index = 0;
         </div>
     </div><!--/.container-->
 </section><!--/#conatcat-info-->
+
+
