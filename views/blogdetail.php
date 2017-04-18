@@ -37,6 +37,20 @@
     </div>
 </div><!--/.blog-item-->
 
+<div class="blog-item">
+    <h3>相关阅读</h3>
+    <ul>
+    <?php
+        $others = \funson86\blog\models\BlogPost::find()->where(['=', 'catalog_id', $post->catalog_id])->andWhere(['<>', 'id', $post->id])->limit(10)->orderBy(['created_at' => SORT_DESC])->all();
+
+        foreach($others as $article){
+    ?>
+        <li><a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=>$article->id])?>"><?=$article->title?></a></li>
+
+    <?php } ?>
+    </ul>
+</div>
+
 <div class="media reply_section">
     <div class="pull-left post_reply text-center">
         <img src="<?=Yii::$app->urlManager->getHostInfo().'/images/avatar3.png'?>" class="img-circle" alt="网站制作" />

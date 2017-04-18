@@ -42,33 +42,6 @@
 </div><!--/.categories-->
 
 
-<div class="widget categories">
-    <h3>最新评论</h3>
-    <div class="row">
-        <div class="col-sm-12">
-            <?php
-                $comments = \funson86\blog\models\BlogComment::findRecentComments(10);
-                foreach($comments as $item){ ?>
-                    <div class="single_comments">
-                        <img src="/images/avatar3.png" alt="网页设计"/>
-                        <p><?=$item->content?></p>
-                        <div class="entry-meta small muted">
-                          <span>
-                            <a href="Yii::$app->urlManager->getHostInfo().'/#'">
-                              <?=$item->author?>
-                            </a>
-                          </span>
-                          <span>评论  
-                            <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->blogPost->id])?>"><?=$item->blogPost->title?>
-                            </a>
-                          </span>
-                        </div>
-                    </div>
-                    <div style="clear:both"></div>
-            <?php } ?>
-        </div>
-    </div>
-</div><!--/.recent comments-->
 
 
 <div class="widget archieve">
@@ -106,3 +79,32 @@
         <?php } ?>
     </ul>
 </div><!--/.tags-->
+
+
+<div class="widget categories">
+    <h3>最新评论</h3>
+    <div class="row">
+        <div class="col-sm-12">
+            <?php
+            $comments = \funson86\blog\models\BlogComment::findRecentComments(10);
+            foreach($comments as $item){ ?>
+                <div class="single_comments">
+                    <img src="/images/avatar3.png" alt="网页设计"/>
+                    <p><?=$item->content?></p>
+                    <div class="entry-meta small muted">
+                          <span>
+                            <a href="Yii::$app->urlManager->getHostInfo().'/#'">
+                                <?=$item->author?>
+                            </a>
+                          </span>
+                          <span>评论
+                            <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->blogPost->id])?>"><?=$item->blogPost->title?>
+                            </a>
+                          </span>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            <?php } ?>
+        </div>
+    </div>
+</div><!--/.recent comments-->
