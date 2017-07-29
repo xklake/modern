@@ -38,14 +38,15 @@
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3>
-                                        <!--a href="<?=$item->url?>" target="_blank" ref="nofollow"-->
+                                        <a href="<?=$item->url?>" target="_blank" ref="nofollow">
                                             <?=$item->name?> : <?=$item->url?>
-                                        <!--/a-->
+                                        </a>
                                     </h3>
+                                    
                                     <p><?=$item->description?></p>
-                                    <!--a class='preview' href="<?=$item->url?>" target="_blank" ref="nofollow"-->
+                                    <a class='preview' href="<?=$item->url?>" target="_blank" ref="nofollow">
                                         <i class="fa fa-eye"></i>查看
-                                    <!--/a-->
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -54,5 +55,5 @@
             </div>
         </div>
     </div>
-</section><!--/#portfolio-item-->
+</section>
 
