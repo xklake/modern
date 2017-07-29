@@ -39,7 +39,7 @@
                                 <div class="recent-work-inner">
                                     <h3>
                                         <a href="<?=$item->url?>" target="_blank" ref="nofollow">
-                                            <?=$item->name?> : <?=$item->url?>
+                                            <?=$item->name?>
                                         </a>
                                     </h3>
                                     
