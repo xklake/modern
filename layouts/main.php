@@ -18,6 +18,11 @@ use yii\helpers\Html;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="<?= Html::encode(Yii::$app->params['keywords']) ?>" />
     <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>" />
+    <?php 
+    $googleverification = Yii::$app->setting->get('google-site-verification');
+    if($googleverification != null){ ?>
+        <meta name="google-site-verification" content="<?=$googleverification?>" />    
+    <?php } ?>
     <meta name="author" content="panda cms">
     <title><?=$this->title?></title>
 
